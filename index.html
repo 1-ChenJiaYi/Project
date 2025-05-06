@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body, p, h1, h2, a {
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none; 
+      background-color: transparent; 
+    }
+
+    .container {
+      display: flex;
+      
+      justify-content: space-between;
+      flex-wrap: wrap;
+      
+      /* background-color: red;  */
+      width: 600px;
+      height: 500px;
+      margin: 0 auto; 
+    }
+
+    .item {
+      /* display: none; */
+      border-radius: 100%;
+      margin: 3px 1px;  
+      width: 100px; 
+      height: 100px;
+      background: blue; 
+    }
+
+    .itemImg {
+      width: 100%; 
+      height: 100%;
+      display: block;
+    }
+
+    .hid {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+  </div>
+
+
+  <script>
+    const Container = document.querySelector(".container") 
+    // 发送网络请求：
+    // fetch("./")
+
+    // 图片的url：  
+    const data = ['./data/1.png', './data/2.png']
+    for (let i = 0; i < 15; ++ i ) data.push("./data/1.png") 
+    
+    
+    data.forEach(imgUrl => {
+      const item = document.createElement("div") 
+      item.className = "item" 
+      const img = document.createElement("img") 
+      img.src = imgUrl 
+      img.className = "itemImg" 
+      item.appendChild(img)  
+      Container.appendChild(item) 
+    });
+
+    
+    // 清楚多余的样式：因为已经固定了宽高。 
+
+    for (let i = 0; i < 6; ++ i )  {
+      const item = document.createElement("div") 
+      item.className = "item hid"   
+      Container.appendChild(item)
+    }
+
+    
+  </script>
+  
+</body>
+</html>
